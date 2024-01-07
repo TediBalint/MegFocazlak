@@ -1,0 +1,69 @@
+body{
+    margin: 0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.clear{
+    clear: both;
+}
+.card{
+    width: 120px;
+    height: 180px;
+    border-radius: 15% 15% 25% 25%;
+    position: relative;
+    overflow: hidden;
+}
+.teamContainer, .cardImageContainer{
+    float: left;
+    height: 50%;
+    position: relative;
+}
+.teamContainer{
+    width: 35%;   
+    padding-top: 10px; 
+}
+.cardImageContainer{
+    width: 65%;
+}
+.statContainer{
+    width: 100%;
+    height: 50%;
+}
+.cardImage{
+    margin: 5px auto;
+    width: 90%;
+    height: 90%;
+}
+.teamStat{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 20%;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+.posDiv{
+    font-size: 12pt;
+}
+.overallDiv{
+    font-size: 16pt;
+}
+.gold{
+
+}
+.gold-rare{
+
+}
+.silver{
+
+}
+.silver-rare{
+
+}
+.bronze{
+    background-color:brown;
+}
+.bronze-rare{
+
+}
