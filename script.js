@@ -2,15 +2,15 @@ const tableContainer = document.querySelector('.tableContainer');
 
 class Card{
     // rarity like in style.css (bronze, bronze-rare...)
-    constructor(x,y,rarity, nation, team, name, pos, img,stats){
+    constructor(x,y,rarity, nation, club, name, pos,stats){
         this.card = document.createElement('div');
         this.card.classList.add('card', rarity);
         tableContainer.appendChild(this.card);
         this.overall = this.getOverall(stats);
 
         this.makeContainers();
-        this.addImage(img);
-        this.addTeams(nation,team,pos);
+        this.addImage(`imgs/players/${name}.png`);
+        this.addTeams(nation,club,pos);
         this.addStats(name,stats);
 
         this.card.dataset.x = x;
@@ -41,31 +41,33 @@ class Card{
     }
     addImage(img){
         const imgElement = document.createElement('img');
-        imgElement.src = `imgs/${img}`;
+        imgElement.src = img;
         imgElement.className = 'cardImage';
         document.querySelector('.cardImageContainer').appendChild(imgElement)
     }
-    addTeams(nation, team,pos){
+    addTeams(nation, club,pos){
         const overallDiv = document.createElement('div');
-        overallDiv.className = 'teamStat';
-        overallDiv.classList.add('overallDiv');
+        overallDiv.className = 'overallDiv';
         overallDiv.innerText = this.overall;
         
 
         const posDiv = document.createElement('div');
-        posDiv.className = 'teamStat';
-        posDiv.classList.add('posDiv');
+        posDiv.className = 'posDiv';
         posDiv.innerText = pos.toUpperCase();
 
-        const teamsDiv = document.createElement('div');
         const nationImg = document.createElement('img');
+        nationImg.src = `imgs/nations/${nation}.png`;
+        nationImg.className = 'teamsImg'
+
         const clubImg = document.createElement('img');
+        clubImg.src = `imgs/clubs/${club}.png`;
+        clubImg.className = 'teamsImg'
         
-
-        const teamDiv = document.querySelector('.teamContainer');
-        teamDiv.appendChild(overallDiv);
-        teamDiv.appendChild(posDiv);
-
+        const teamDivContainer = document.querySelector('.teamContainer');
+        teamDivContainer.appendChild(overallDiv);
+        teamDivContainer.appendChild(posDiv);
+        teamDivContainer.appendChild(nationImg);
+        teamDivContainer.appendChild(clubImg);
     }
     addStats(name,stats) 
     {
@@ -74,4 +76,4 @@ class Card{
     add
 }
 
-const newCard = new Card(0,0,'bronze', 'argentina', 'psg', 'messi', 'rw', '1.png', {att:12,mid:12,def:6})
+const newCard = new Card(0,0,'bronze', 'argentina', 'psg', 'Messi', 'rw', {att:12,mid:12,def:6})
