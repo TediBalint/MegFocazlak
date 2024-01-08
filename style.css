@@ -12,6 +12,10 @@ body{
     position: relative;
     overflow: hidden;
 }
+.tableContainer{
+    width: 1200px;
+    height: 1800px;
+}
 .teamContainer, .cardImageContainer{
     float: left;
     height: 50%;
@@ -24,8 +28,11 @@ body{
     width: 65%;
 }
 .statContainer{
-    width: 100%;
+    position: relative;
+    width: 80%;
     height: 50%;
+    margin-right: auto;
+    margin-left: auto;;
 }
 .cardImage{
     margin: 5px auto;
@@ -55,22 +62,34 @@ body{
     width: 23px;
     height: 23px;
 }
+.nameDiv, .statDiv{
+    width: 100%;
+}
+.nameDiv{
+    border-bottom: #333 2px solid;
+    height: min-content;
+    text-align: center;
+}
+.statDiv{
+    height: 100%;
+    font-size: 10pt;
+}
 
 .gold{
-
+    background-image: linear-gradient(to bottom right, rgb(255, 226, 149), rgb(220, 152, 38),rgb(255, 226, 149) );
 }
 .gold-rare{
-
+    background-image: linear-gradient(to bottom right, rgb(255, 226, 149), rgb(220, 152, 38),rgb(255, 226, 149) );
 }
 .silver{
-
+    background-image: linear-gradient(to bottom right, rgb(255, 226, 149), rgb(220, 152, 38),rgb(255, 226, 149) );
 }
 .silver-rare{
-
+    background-image: linear-gradient(to bottom right, rgb(255, 226, 149), rgb(220, 152, 38),rgb(255, 226, 149) );
 }
 .bronze{
-    background-color:brown;
+    background-image: linear-gradient(to bottom right, rgb(255, 226, 149), rgb(220, 152, 38),rgb(255, 226, 149) );
 }
 .bronze-rare{
-
+    background-image: linear-gradient(to bottom right, rgb(255, 226, 149), rgb(220, 152, 38),rgb(255, 226, 149) );
 }
