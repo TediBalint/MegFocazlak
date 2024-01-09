@@ -82,20 +82,20 @@ body{
 }
 
 .gold{
-    background-image: linear-gradient(to bottom right, rgb(255, 226, 149), rgb(220, 152, 38),rgb(255, 226, 149) );
+    background-image: linear-gradient(to bottom right, rgb(221,200,133),rgb(188,163,92));
 }
 .gold-rare{
     background-image: linear-gradient(to bottom right, rgb(255, 226, 149), rgb(220, 152, 38),rgb(255, 226, 149) );
 }
 .silver{
-    background-image: linear-gradient(to bottom right, rgb(255, 226, 149), rgb(220, 152, 38),rgb(255, 226, 149) );
+    background-image: linear-gradient(to bottom ,rgb(209, 208, 208), rgb(162,160,160) );
 }
 .silver-rare{
-    background-image: linear-gradient(to bottom right, rgb(255, 226, 149), rgb(220, 152, 38),rgb(255, 226, 149) );
+    background-image: linear-gradient(to bottom right, rgb(237,237,238), rgb(213,214,216),rgb(237,237,238),rgb(171,172,173)  );
 }
 .bronze{
-    background-image: linear-gradient(to bottom right, rgb(255, 226, 149), rgb(220, 152, 38),rgb(255, 226, 149) );
+    background-image: linear-gradient(to right,rgb(230, 186, 137), rgb(137,94,63) );
 }
 .bronze-rare{
-    background-image: linear-gradient(to bottom right, rgb(255, 226, 149), rgb(220, 152, 38),rgb(255, 226, 149) );
+    background-image: linear-gradient(to bottom right,rgb(254,215,184),rgb(196, 149, 110));
 }
