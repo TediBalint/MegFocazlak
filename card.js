@@ -36,30 +36,30 @@ class Card{
         return 10;
     }
     makeContainers(){
-        const teamContainer = document.createElement('div');
-        teamContainer.className = 'teamContainer'
+        this.teamContainer = document.createElement('div');
+        this.teamContainer.className = 'teamContainer'
 
-        const imageContainer = document.createElement('div');
-        imageContainer.className = 'cardImageContainer'
+        this.imageContainer = document.createElement('div');
+        this.imageContainer.className = 'cardImageContainer'
         
 
         const clearDiv = document.createElement('div');
         clearDiv.className = 'clear';
         
-        this.card.appendChild(teamContainer);
-        this.card.appendChild(imageContainer);
+        this.card.appendChild(this.teamContainer);
+        this.card.appendChild(this.imageContainer);
         this.card.appendChild(clearDiv);
 
-        const statContainer = document.createElement('div');
-        statContainer.className = 'statContainer';
+        this.statContainer = document.createElement('div');
+        this.statContainer.className = 'statContainer';
 
-        this.card.appendChild(statContainer);
+        this.card.appendChild(this.statContainer);
     }
     addImage(img){
         const imgElement = document.createElement('img');
         imgElement.src = img;
         imgElement.className = 'cardImage';
-        document.querySelector('.cardImageContainer').appendChild(imgElement)
+        this.imageContainer.appendChild(imgElement)
     }
     addTeams(nation, club,pos){
         const overallDiv = document.createElement('div');
@@ -79,11 +79,10 @@ class Card{
         clubImg.src = `imgs/clubs/${club}.png`;
         clubImg.className = 'teamsImg'
         
-        const teamDivContainer = document.querySelector('.teamContainer');
-        teamDivContainer.appendChild(overallDiv);
-        teamDivContainer.appendChild(posDiv);
-        teamDivContainer.appendChild(nationImg);
-        teamDivContainer.appendChild(clubImg);
+        this.teamContainer.appendChild(overallDiv);
+        this.teamContainer.appendChild(posDiv);
+        this.teamContainer.appendChild(nationImg);
+        this.teamContainer.appendChild(clubImg);
     }
     addStats(name,stats) 
     {
@@ -108,8 +107,8 @@ class Card{
         StatDiv.appendChild(midDiv);
         StatDiv.appendChild(defDiv);
 
-        document.querySelector('.statContainer').appendChild(nameDiv);
-        document.querySelector('.statContainer').appendChild(StatDiv);
+        this.statContainer.appendChild(nameDiv);
+        this.statContainer.appendChild(StatDiv);
     }
     
 }

@@ -5,16 +5,22 @@ body{
 .clear{
     clear: both;
 }
+.tableContainer{
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1500px;
+    height: 1080px;
+}
 .card{
-    width: 120px;
-    height: 180px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    float: left;
+    width: 130px;
+    height: 170px;
     border-radius: 15% 15% 25% 25%;
     position: relative;
     overflow: hidden;
-}
-.tableContainer{
-    width: 1200px;
-    height: 1800px;
 }
 .teamContainer, .cardImageContainer{
     float: left;
