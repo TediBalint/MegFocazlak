@@ -1,5 +1,5 @@
 let cardData = [
-   '0;0;bronze;kamerun;bengaluru_banancsapata;Banana;cb;12;12;6',
+   '0;0;bronze;kamerun;bengaluru_bananacsapata;Banana;cb;12;12;6',
    '1;0;bronze;nemetorszag;Kaiserslautern_dickcsapata;Dick;rb;12;12;6',
    '2;0;silver-rare;ausztria;charlotte_fuckscsapata;Fuchks;lb;12;12;6',
    '3;0;gold;olaszorszag;brescia_dickmanncsapata;Dickmann;rw;12;12;6',
