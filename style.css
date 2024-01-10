@@ -10,7 +10,8 @@ body{
     margin-left: auto;
     margin-right: auto;
     width: 1500px;
-    height: 1080px;
+    position: relative;
+    height: 910px;
 }
 .card{
     margin-left: 10px;
@@ -21,6 +22,14 @@ body{
     border-radius: 15% 15% 25% 25%;
     position: relative;
     overflow: hidden;
+}
+.currentCard{
+    transition: all ease 1.5s;
+    position: absolute;
+    left: -150px;
+    top: 10px;
+    overflow: visible;
+    z-index: 1;
 }
 .teamContainer, .cardImageContainer{
     float: left;

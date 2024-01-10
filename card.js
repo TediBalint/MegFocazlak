@@ -1,10 +1,14 @@
 class Card{
     // rarity like in style.css (bronze, bronze-rare...)
-    constructor(line){
+    constructor(line, isCurrent){
         const data = line.trim().split(';');
         this.card = document.createElement('div');
+        if(!isCurrent) this.card.classList.add('currentCard');
         this.card.classList.add('card', data[2]);
+        
+
         document.querySelector('.tableContainer').appendChild(this.card);
+       
         
         const stats = {
             att: parseInt(data[7]),
@@ -19,19 +23,51 @@ class Card{
         this.addImage(`imgs/players/${data[5]}.png`);
         this.addTeams(data[3],data[4],data[6]);
         this.addStats(data[5],stats);
-
         this.card.dataset.x = parseInt(data[0]);
-        this.card.dataset.y = parseInt(data[1]);        
+        this.card.dataset.y = parseInt(data[1]);  
+        this.isCurrent = isCurrent;
     }
     static getCards(cardData){
         let cards = []
         cardData.forEach(row => {
-            cards.push(new Card(row));
+            cards.push(new Card(row,true));
         });
         return cards;
     }
     getOverall(stats){
         return 10;
+    }
+    getNextPos(){
+        let x = this.card.dataset.x;
+        let y = this.card.dataset.y;
+
+        if(y % 2 == 0){
+            if(x < 10) x++;
+            else y++;
+        }
+        else{
+            if(x > 1) x--;
+            else y++;
+        }
+        return [x,y];
+    }
+    moveTo(pos){
+        let x = pos[0];
+        let y = pos[1];
+        this.card.dataset.x = x;
+        this.card.dataset.y = y;
+        this.card.style.left = (x*140 + 10-140) + "px";
+        this.card.style.top = y*180+10 + "px";
+    }
+    Move(){
+        this.moveTo(this.getNextPos());
+    }
+    makeCurrent(){
+        this.isCurrent = true;
+    }
+    disableCurrent(){
+        this.isCurrent = false;
+        this.card.classList.remove('currentCard');
     }
     makeContainers(){
         this.teamContainer = document.createElement('div');
