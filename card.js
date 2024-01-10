@@ -21,9 +21,7 @@ class Card{
         this.addStats(data[5],stats);
 
         this.card.dataset.x = parseInt(data[0]);
-        this.card.dataset.y = parseInt(data[1]);
-
-        
+        this.card.dataset.y = parseInt(data[1]);        
     }
     static getCards(cardData){
         let cards = []

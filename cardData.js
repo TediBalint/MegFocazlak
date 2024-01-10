@@ -1,10 +1,11 @@
-let cardData = []
+let cardData = [
+   '0;0;gold-rare;argentina;psg;Kolo Muani;st;12;12;6',
+   '1;0;gold-rare;argentina;psg;Martinez;gk;12;12;6',
+   '9;4;gold-rare;argentina;psg;Messi;rw;12;12;6',
+   
+   
+]
 const colors = ['bronze', 'bronze-rare', 'silver', 'silver-rare', 'gold', 'gold-rare'];
-for (let x = 0; x < 10; x++) {
-   for (let y = 0; y < 5; y++) {
-    cardData.push(`${x};${y};${colors[parseInt(Math.random()*6)]};argentina;psg;Messi;rw;12;12;6`)
-   }
-    
-}
+
 
 export default cardData;
