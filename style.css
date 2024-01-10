@@ -24,7 +24,7 @@ body{
     overflow: hidden;
 }
 .currentCard{
-    transition: all ease 1.5s;
+    transition: top ease-in-out 1s, left ease-in-out 1s;
     position: absolute;
     left: -150px;
     top: 10px;
@@ -70,12 +70,21 @@ body{
     font-size: 16pt;
     margin-bottom: 2px;
 }
-.teamsImg{
+.teamsImg,.flagImg{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.teamsImg{
     width: 23px;
     height: 23px;
+}
+.flagImg{
+    width: 23px;
+    height: 15px;
 }
 .nameDiv, .statDiv{
     width: 100%;

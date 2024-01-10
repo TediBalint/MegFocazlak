@@ -5,9 +5,9 @@ let cardData = [
    '3;0;gold;olaszorszag;brescia_dickmanncsapata;Dickmann;rw;12;12;6',
    '4;0;silver;ausztria;wolfsberger_nutzcsapata;Nutz;lw;12;12;6',
    '0;1;silver-rare;argentina;aldosivi_assmanncsapata;Assmann;gk;12;12;6',
-   '1;1;bronze;franciaorszag;psg;Kolo Muani;st;12;12;6',
+   '1;1;bronze;france;psg;Kolo Muani;st;12;12;6',
    '2;1;gold;argentina;astonvilla;Martinez;gk;12;12;6',
-   '3;1;gold-rare;franciaorszag;psg;Mbappe;lw;12;12;6',
+   '3;1;gold-rare;france;psg;Mbappe;lw;12;12;6',
    '4;1;silver-rare;argentina;miami;Messi;rw;12;12;6',
    '0;2;bronze-rare;eszakirorszag;aarhus_peacockcsapata;peacock;gk;12;12;6',
 ]
