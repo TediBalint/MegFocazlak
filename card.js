@@ -5,8 +5,9 @@ class Card{
         this.card = document.createElement('div');
         if(!isCurrent) this.card.classList.add('currentCard');
         this.card.classList.add('card', data[2]);
-        
 
+        this.x = parseInt(data[0]);
+        this.y = parseInt(data[1]);       
         document.querySelector('.tableContainer').appendChild(this.card);
        
         
@@ -23,9 +24,8 @@ class Card{
         this.addImage(`imgs/players/${data[5]}.png`);
         this.addTeams(data[3],data[4],data[6]);
         this.addStats(data[5],stats);
-        this.card.dataset.x = parseInt(data[0]);
-        this.card.dataset.y = parseInt(data[1]);  
         this.isCurrent = isCurrent;
+        this.updatePos()
     }
     static getCards(cardData){
         let cards = []
@@ -35,35 +35,28 @@ class Card{
         return cards;
     }
     getOverall(stats){
-        return 10;
+        return parseInt(Object.values(stats).reduce((sum, value) => sum + value, 0)/Object.values(stats).length);
     }
-    getNextPos(){
-        let x = this.card.dataset.x;
-        let y = this.card.dataset.y;
-
-        if(y % 2 == 0){
-            if(x < 10) x++;
-            else y++;
+    setNextPos(){
+        if(this.y % 2 == 0){
+            if(this.x < 10) this.x++;
+            else this.y++;
         }
         else{
-            if(x > 1) x--;
-            else y++;
+            if(this.x > 1) this.x--;
+            else this.y++;
         }
-        return [x,y];
     }
-    moveTo(pos){
-        let x = pos[0];
-        let y = pos[1];
-        this.card.dataset.x = x;
-        this.card.dataset.y = y;
-        this.card.style.left = (x*140 + 10-140) + "px";
-        this.card.style.top = y*180+10 + "px";
+    updatePos(){
+        this.card.style.left = (this.x*140 + 10-140) + "px";
+        this.card.style.top = this.y*180+10 + "px";
     }
     Move(){
-        this.moveTo(this.getNextPos());
+        this.updatePos(this.setNextPos());
     }
     makeCurrent(){
         this.isCurrent = true;
+        this.card.classList.add('currentCard');
     }
     disableCurrent(){
         this.isCurrent = false;
@@ -100,14 +93,13 @@ class Card{
         overallDiv.className = 'overallDiv';
         overallDiv.innerText = this.overall;
         
-
         const posDiv = document.createElement('div');
         posDiv.className = 'posDiv';
         posDiv.innerText = pos.toUpperCase();
 
         const nationImg = document.createElement('img');
         nationImg.src = `imgs/nations/${nation}.png`;
-        nationImg.className = 'teamsImg'
+        nationImg.className = 'flagImg'
 
         const clubImg = document.createElement('img');
         clubImg.src = `imgs/clubs/${club}.png`;

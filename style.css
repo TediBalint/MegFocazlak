@@ -14,13 +14,10 @@ body{
     height: 910px;
 }
 .card{
-    margin-left: 10px;
-    margin-bottom: 10px;
-    float: left;
     width: 130px;
     height: 170px;
     border-radius: 15% 15% 25% 25%;
-    position: relative;
+    position: absolute;
     overflow: hidden;
 }
 .currentCard{

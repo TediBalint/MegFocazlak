@@ -1,12 +1,13 @@
 import Card from './card.js';
 import CardData from './cardData.js';
 import MovementHandler from './movementHandler.js';
+
+
 const cards = Card.getCards(CardData);
 
 const dobasBtn = document.querySelector('#dobasBtn');
 
-let currentCard = new Card('0;0;bronze;argentina;psg;Assmann;st;12;12;6', false);
-const movementHandler = new MovementHandler(currentCard)
-
+let startCard = new Card('-1;0;bronze;argentina;Aldosovi;Assmann;gk;23;23;63', false);
+const movementHandler = new MovementHandler(startCard, cards)
 
 dobasBtn.addEventListener('click', () => {movementHandler.move()})
