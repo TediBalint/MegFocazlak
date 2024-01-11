@@ -9,7 +9,7 @@ let cardData = [
    '7;0;gold;argentina;astonvilla;Martinez;gk;12;12;6',
    '8;0;gold-rare;franciaorszag;psg;Mbappe;lw;12;12;6',
    '9;0;silver-rare;argentina;miami;Messi;rw;12;12;6',
-   '10;2;bronze-rare;eszakirorszag;aarhus_peacockcsapata;peacock;gk;12;12;6',
+   '0;1;bronze-rare;eszakirorszag;aarhus_peacockcsapata;peacock;gk;12;12;6',
 ]
 
 export default cardData;

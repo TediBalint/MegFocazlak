@@ -48,8 +48,9 @@ class Card{
         }
     }
     updatePos(){
-        this.card.style.left = (this.x*140 + 10-140) + "px";
-        this.card.style.top = this.y*180+10 + "px";
+        if(this.x < 0) this.card.style.left = ((this.x)*140-10) + "px";
+        else this.card.style.left = ((this.x)*140 + 10) + "px";
+        this.card.style.top = (this.y)*180+10 + "px";
     }
     Move(){
         this.updatePos(this.setNextPos());
