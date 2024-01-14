@@ -34,8 +34,8 @@ class MovementHandler{
         this.steps--;
         this.currentCard.card.addEventListener('transitionend', this.transitionEnd);
     }
-    move(){
-        this.steps = Math.floor(Math.random()*5)+1;
+    move(num){
+        this.steps = num;
         this.transitionStart();
     }  
 
