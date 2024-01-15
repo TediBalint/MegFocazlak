@@ -1,9 +1,16 @@
 class Card{
     // rarity like in style.css (bronze, bronze-rare...)
     constructor(line, isCurrent){
+        
         const data = line.trim().split(';');
+        this.isCurrent = isCurrent;
+        this.isPlayer = data[10];
+        if(this.isPlayer) this.createPlayerCard(data);
+        else this.createGameCard(data);
+    }
+    createPlayerCard(data){
         this.card = document.createElement('div');
-        if(!isCurrent) this.card.classList.add('currentCard');
+        if(!this.isCurrent) this.card.classList.add('currentCard');
         this.card.classList.add('card', data[2]);
 
         this.x = parseInt(data[0]);
@@ -24,15 +31,28 @@ class Card{
         this.addImage(`imgs/players/${data[5]}.png`);
         this.addTeams(data[3],data[4],data[6]);
         this.addStats(data[5],stats);
-        this.isCurrent = isCurrent;
+        
         this.updatePos()
     }
-    static getCards(cardData){
-        let cards = []
-        cardData.forEach(row => {
-            cards.push(new Card(row,true));
-        });
-        return cards;
+    createGameCard(data){
+        this.card = document.createElement('div');
+        this.card.classList.add('card');
+        this.card.classList.add('gameCard');
+        this.x = parseInt(data[0]);
+        this.y = parseInt(data[1]);
+        this.updatePos();
+
+        let cardImage = document.createElement('img');
+        cardImage.src = 'imgs/Florentino Perez.jpg';
+        cardImage.classList.add('gameCardImage')
+        this.card.appendChild(cardImage);
+
+        let cardText = document.createElement('div');
+        cardText.classList.add('gameCardText');
+        cardText.innerText = data[2];
+        this.card.appendChild(cardText);
+
+        document.querySelector('.tableContainer').appendChild(this.card);
     }
     getOverall(stats){
         return parseInt(Object.values(stats).reduce((sum, value) => sum + value, 0)/Object.values(stats).length);
@@ -137,6 +157,14 @@ class Card{
         this.statContainer.appendChild(nameDiv);
         this.statContainer.appendChild(StatDiv);
     }
+    static getCards(cardData){
+        let cards = []
+        cardData.forEach(row => {
+            cards.push(new Card(row,true));
+        });
+        return cards;
+    }
+    
     
 }
 
