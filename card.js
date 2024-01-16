@@ -4,8 +4,9 @@ class Card{
         
         const data = line.trim().split(';');
         this.isCurrent = isCurrent;
-        this.isPlayer = data[10];
-        this.isEvo = data[11];
+        this.isPlayer = parseInt(data[10]);
+        this.isEvo = parseInt(data[11]);
+        console.log(data);
         if(this.isPlayer) this.createPlayerCard(data);
         else if(this.isEvo) this.createEvolutionCard(data);
         else this.createGameCard(data);
@@ -51,7 +52,6 @@ class Card{
         cardText.innerText = data[2];
         this.card.appendChild(cardText);
 
-        
         document.querySelector('.tableContainer').appendChild(this.card);
     }
     createEvolutionCard(data){
