@@ -13,14 +13,19 @@ class MovementHandler{
             this.transitionStart();
         }
         else{
-            if(this.isPlayer){
+            if(this.getNextCard().isPlayer){
                 this.currentCard.disableCurrent();
                 this.currentCard = this.getNextCard();
                 
                 this.currentCard.makeCurrent();
             }
             else{
-                
+                for (const stat of Object.keys(this.getNextCard().statsPlus)) {
+                    this.currentCard.stats[stat] += this.getNextCard().statsPlus[stat];
+                }
+                console.log(this.getNextCard());
+                console.log(this.currentCard);
+                this.currentCard.updateStats();
             }
             
         }

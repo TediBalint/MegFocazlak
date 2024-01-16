@@ -5,7 +5,9 @@ class Card{
         const data = line.trim().split(';');
         this.isCurrent = isCurrent;
         this.isPlayer = data[10];
+        this.isEvo = data[11];
         if(this.isPlayer) this.createPlayerCard(data);
+        else if(this.isEvo) this.createEvolutionCard(data);
         else this.createGameCard(data);
     }
     createPlayerCard(data){
@@ -18,26 +20,23 @@ class Card{
         document.querySelector('.tableContainer').appendChild(this.card);
        
         
-        const stats = {
+        this.stats = {
             att: parseInt(data[7]),
             mid: parseInt(data[8]),
             def: parseInt(data[9])
         };
-
         
-        
-        this.overall = this.getOverall(stats);
+        this.overall = this.getOverall(this.stats);
         this.makeContainers();
         this.addImage(`imgs/players/${data[5]}.png`);
         this.addTeams(data[3],data[4],data[6]);
-        this.addStats(data[5],stats);
+        this.addStats(data[5]);
         
         this.updatePos()
     }
     createGameCard(data){
         this.card = document.createElement('div');
-        this.card.classList.add('card');
-        this.card.classList.add('gameCard');
+        this.card.classList.add('card', 'gameCard');
         this.x = parseInt(data[0]);
         this.y = parseInt(data[1]);
         this.updatePos();
@@ -52,7 +51,28 @@ class Card{
         cardText.innerText = data[2];
         this.card.appendChild(cardText);
 
+        
         document.querySelector('.tableContainer').appendChild(this.card);
+    }
+    createEvolutionCard(data){
+        this.card = document.createElement('div');
+        this.card.classList.add('card', data[2]);
+        this.maxStats = {att:parseInt(data[3]), mid:parseInt(data[4]), def:parseInt(data[5])};
+        this.pos = data[9];
+        this.statsPlus = {att: parseInt(data[6]), mid: parseInt(data[7]), def: parseInt(data[8])};
+    }
+    plusStats(card){
+        if(this.isAligable(card)){
+            for (const stat of Object.keys(card.stats)) {
+                console.log(stat);
+                card.stat[stat] += this.statsPlus[stat];
+            }
+            card.updateStats();
+        }
+        
+    }
+    isAligable(card){
+        return (Object.keys(this.statsPlus).reduce((accumulator, key) => accumulator && this.maxStats[key] <= this.card.stats[key] , true) && (card.pos == this.pos || this.pos.toUpperCase() == 'ANY'));
     }
     getOverall(stats){
         return parseInt(Object.values(stats).reduce((sum, value) => sum + value, 0)/Object.values(stats).length);
@@ -131,24 +151,24 @@ class Card{
         this.teamContainer.appendChild(nationImg);
         this.teamContainer.appendChild(clubImg);
     }
-    addStats(name,stats) 
+    addStats(name) 
     {
         const nameDiv = document.createElement('div');
         nameDiv.innerText = name;
         nameDiv.className = 'nameDiv';
         
-
         const StatDiv = document.createElement('div');
         StatDiv.className = "statDiv";
 
         const attDiv = document.createElement('div');
-        attDiv.innerText = `${stats.att} Attacking`
+        attDiv.className = 'attDiv';
 
         const midDiv = document.createElement('div');
-        midDiv.innerText = `${stats.mid} Midfield`
+        midDiv.className = 'midDiv';
+
 
         const defDiv = document.createElement('div');
-        defDiv.innerText = `${stats.def} Defending`
+        defDiv.className = 'defDiv';
 
         StatDiv.appendChild(attDiv);
         StatDiv.appendChild(midDiv);
@@ -156,6 +176,12 @@ class Card{
 
         this.statContainer.appendChild(nameDiv);
         this.statContainer.appendChild(StatDiv);
+        this.updateStats();
+    }
+    updateStats(){
+        this.card.querySelector('.attDiv').innerText = `${this.stats.att} Attacking`;
+        this.card.querySelector('.midDiv').innerText = `${this.stats.mid} Mdifield`;
+        this.card.querySelector('.defDiv').innerText = `${this.stats.def} Defending`;
     }
     static getCards(cardData){
         let cards = []
