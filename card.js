@@ -66,12 +66,37 @@ class Card{
         textDiv.classList.add('evoCardText');
         textDiv.innerText = data[12];
 
-        let requirementsHeader = document.createElement('div');
-        requirementsHeader.classList.add('reqHeader');
-        requirementsHeader.innerText = 'Requirements';
+       
+
+        let statContainer = document.createElement('div');
+        statContainer.classList.add('statContainer')
+
+        let nameDiv = document.createElement('div');
+        nameDiv.classList.add('nameDiv');
+        nameDiv.innerText = 'Requirements';
+
+        statContainer.appendChild(nameDiv);
+
+        let statDiv = document.createElement('div');
+        statDiv.classList.add('statDiv');
+
+        let attDiv1 = document.createElement('div');
+        attDiv1.innerText = `max ${data[3]} attacking`;
+
+        let midDiv1 = document.createElement('div');
+        midDiv1.innerText = `max ${data[4]} midfield`;
+
+        let defDiv1 = document.createElement('div');
+        defDiv1.innerText = `max ${data[5]} defending`;
+
+        statContainer.appendChild(statDiv);
+        statDiv.appendChild(attDiv1);
+        statDiv.appendChild(midDiv1);
+        statDiv.appendChild(defDiv1);
 
         this.card.appendChild(textDiv);
-        this.card.appendChild(requirementsHeader);
+        this.card.appendChild(statContainer);
+        
         document.querySelector('.tableContainer').appendChild(this.card);
     }
     plusStats(card){
