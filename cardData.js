@@ -20,7 +20,7 @@ let cardData = [
    '8;1;Ha kevesebb mint 10 attackingod van akkor vesztettél, ha nem kapsz 10 attackot;10;0;0;0',
    '9;1;Ha kevesebb mint 10 attackingod van akkor vesztettél, ha nem kapsz 10 attackot;10;0;0;0',
    '9;2;Ha kevesebb mint 10 attackingod van akkor vesztettél, ha nem kapsz 10 attackot;10;0;0;0',
-   '0;3;evo1;10;10;6;10;10;10;0;0;1'
+   '0;3;evo1;10;10;6;10;10;10;rw;0;1;Attacking midfilder'
 ]
 
 export default cardData;

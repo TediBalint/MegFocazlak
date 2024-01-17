@@ -4,6 +4,8 @@ class Card{
         
         const data = line.trim().split(';');
         this.isCurrent = isCurrent;
+        this.x = parseInt(data[0]);
+        this.y = parseInt(data[1]);
         this.isPlayer = parseInt(data[10]);
         this.isEvo = parseInt(data[11]);
         console.log(data);
@@ -15,9 +17,7 @@ class Card{
         this.card = document.createElement('div');
         if(!this.isCurrent) this.card.classList.add('currentCard');
         this.card.classList.add('card', data[2]);
-
-        this.x = parseInt(data[0]);
-        this.y = parseInt(data[1]);       
+ 
         document.querySelector('.tableContainer').appendChild(this.card);
        
         
@@ -38,8 +38,7 @@ class Card{
     createGameCard(data){
         this.card = document.createElement('div');
         this.card.classList.add('card', 'gameCard');
-        this.x = parseInt(data[0]);
-        this.y = parseInt(data[1]);
+        
         this.updatePos();
 
         let cardImage = document.createElement('img');
@@ -58,8 +57,22 @@ class Card{
         this.card = document.createElement('div');
         this.card.classList.add('card', data[2]);
         this.maxStats = {att:parseInt(data[3]), mid:parseInt(data[4]), def:parseInt(data[5])};
-        this.pos = data[9];
+        this.pos = data[9].toUpperCase();
         this.statsPlus = {att: parseInt(data[6]), mid: parseInt(data[7]), def: parseInt(data[8])};
+
+        this.updatePos();
+
+        let textDiv = document.createElement('div');
+        textDiv.classList.add('evoCardText');
+        textDiv.innerText = data[12];
+
+        let requirementsHeader = document.createElement('div');
+        requirementsHeader.classList.add('reqHeader');
+        requirementsHeader.innerText = 'Requirements';
+
+        this.card.appendChild(textDiv);
+        this.card.appendChild(requirementsHeader);
+        document.querySelector('.tableContainer').appendChild(this.card);
     }
     plusStats(card){
         if(this.isAligable(card)){
