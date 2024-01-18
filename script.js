@@ -7,7 +7,7 @@ const cards = Card.getCards(CardData);
 
 const dobasBtn = document.querySelector('#dobasBtn');
 
-let startCard = new Card('-1;0;bronze;argentina;Aldosovi;Assmann;gk;23;23;63;1', false);
+let startCard = new Card('-1;0;bronze;argentina;Aldosovi;Assmann;gk;23;23;63;1;0', false);
 const movementHandler = new MovementHandler(startCard, cards)
 
 dobasBtn.addEventListener('click', () => {DiceThrow().then(result =>{
