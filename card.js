@@ -8,7 +8,6 @@ class Card{
         this.y = parseInt(data[1]);
         this.isPlayer = parseInt(data[10]);
         this.isEvo = parseInt(data[11]);
-        console.log(data);
         if(this.isPlayer) this.createPlayerCard(data);
         else if(this.isEvo) this.createEvolutionCard(data);
         else this.createGameCard(data);
@@ -27,7 +26,7 @@ class Card{
             def: parseInt(data[9])
         };
         
-        this.overall = this.getOverall(this.stats);
+        this.overall = this.getOverall();
         this.makeContainers();
         this.addImage(`imgs/players/${data[5]}.png`);
         this.addTeams(data[3],data[4],data[6]);
@@ -130,8 +129,8 @@ class Card{
     isAligable(card){
         return (Object.keys(this.statsPlus).reduce((accumulator, key) => accumulator && this.maxStats[key] <= this.card.stats[key] , true) && (card.pos == this.pos || this.pos.toUpperCase() == 'ANY'));
     }
-    getOverall(stats){
-        return parseInt(Object.values(stats).reduce((sum, value) => sum + value, 0)/Object.values(stats).length);
+    getOverall(){
+        return Math.max(...Object.values(this.stats));
     }
     setNextPos(){
         if(this.y % 2 == 0){
@@ -238,6 +237,7 @@ class Card{
         this.card.querySelector('.attDiv').innerText = `${this.stats.att} Attacking`;
         this.card.querySelector('.midDiv').innerText = `${this.stats.mid} Mdifield`;
         this.card.querySelector('.defDiv').innerText = `${this.stats.def} Defending`;
+        this.card.querySelector('.overallDiv').innerText = this.getOverall();
     }
     static getCards(cardData){
         let cards = []
