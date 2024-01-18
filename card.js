@@ -69,30 +69,48 @@ class Card{
        
 
         let statContainer = document.createElement('div');
-        statContainer.classList.add('statContainer')
+        statContainer.classList.add('evoStatContainer')
 
-        let nameDiv = document.createElement('div');
-        nameDiv.classList.add('nameDiv');
-        nameDiv.innerText = 'Requirements';
+        // let nameDiv = document.createElement('div');
+        // nameDiv.classList.add('evoName');
+        // nameDiv.innerText = 'Requirements max:';
 
-        statContainer.appendChild(nameDiv);
+        // statContainer.appendChild(nameDiv);
 
         let statDiv = document.createElement('div');
         statDiv.classList.add('statDiv');
 
         let attDiv1 = document.createElement('div');
-        attDiv1.innerText = `max ${data[3]} attacking`;
+        attDiv1.innerText = `Max ${data[3]} Attacking`;
 
         let midDiv1 = document.createElement('div');
-        midDiv1.innerText = `max ${data[4]} midfield`;
+        midDiv1.innerText = `Max ${data[4]} Midfield`;
 
         let defDiv1 = document.createElement('div');
-        defDiv1.innerText = `max ${data[5]} defending`;
+        defDiv1.innerText = `Max ${data[5]} Defending`;
+
+        let posDiv1 = document.createElement('div');
+        posDiv1.innerText = `Position: ${this.pos}`;
+        posDiv1.classList.add('posReq');
+
+        let attDiv2 = document.createElement('div');
+        attDiv2.innerText = `+ ${data[6]} Attacking`;
+        
+        let midDiv2 = document.createElement('div');
+        midDiv2.innerText = `+ ${data[7]} Midfield`;
+        
+        let defDiv2 = document.createElement('div');
+        defDiv2.innerText = `+ ${data[8]} Defending`;
 
         statContainer.appendChild(statDiv);
         statDiv.appendChild(attDiv1);
         statDiv.appendChild(midDiv1);
         statDiv.appendChild(defDiv1);
+        statDiv.appendChild(posDiv1);
+        statDiv.appendChild(attDiv2);
+        statDiv.appendChild(midDiv2);
+        statDiv.appendChild(defDiv2);
+        
 
         this.card.appendChild(textDiv);
         this.card.appendChild(statContainer);
