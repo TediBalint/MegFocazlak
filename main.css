@@ -1,11 +1,12 @@
 body{
     margin: 0;
+    font-size: larger;
     background-image: url("imgs/img/download.jpg");
 }
 
 #wrapper{
     width: 1400px;
-    height: 700px;
+    height: 660px;
     margin-top: 80px;
     margin-bottom: 80px;
     margin-left: auto;
@@ -23,9 +24,10 @@ body{
     margin-left: auto;
     margin-right: auto;
     width: 500px;
-    height: 700px;
+    height: 200px;
     text-align: center;
     background-image: url("imgs/img/4e1bf8d7ee63f79ab73e1a05d1c6a8bf.jpg");
+    border-radius: 2%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -38,8 +40,6 @@ body{
     float: left;
 
     border: 1px solid white;
-    /* background-color: red; */
-
     box-sizing: border-box;
 }
 
@@ -50,6 +50,10 @@ body{
 
 .button-85 {
   padding: 0.6em 2em;
+  width: fit-content;
+  font-size: large;
+  font-style: normal;
+  font-weight: bold;
   border: none;
   outline: none;
   color: rgb(255, 255, 255);
@@ -114,3 +118,5 @@ body{
   top: 0;
   border-radius: 10px;
 }
+
+h1{}
