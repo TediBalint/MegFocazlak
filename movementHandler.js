@@ -19,13 +19,24 @@ class MovementHandler{
                 
                 this.currentCard.makeCurrent();
             }
-            else{
-                for (const stat of Object.keys(this.getNextCard().statsPlus)) {
-                    this.currentCard.stats[stat] += this.getNextCard().statsPlus[stat];
+            else if(this.getNextCard().isEvo){
+                if(this.getNextCard().isAligable(this.currentCard)){
+                    for (const stat of Object.keys(this.getNextCard().statsPlus)) {
+                        this.currentCard.stats[stat] += this.getNextCard().statsPlus[stat];
+                    }
+                    console.log(this.getNextCard());
+                    console.log(this.currentCard);
+                    this.currentCard.updateStats();
                 }
-                console.log(this.getNextCard());
-                console.log(this.currentCard);
-                this.currentCard.updateStats();
+                else console.log("Cant evo");
+            }
+            else{
+                if(this.getNextCard().isOver(this.currentCard)){
+                    console.log("game over");
+                }
+                else{
+                    console.log("not over");
+                }
             }
             
         }
@@ -37,6 +48,8 @@ class MovementHandler{
                 nextCard = elem;
             }
         });
+        if(nextCard == undefined) console.log("Game Over you won");
+        //win
         return nextCard;
     }
     transitionStart(){

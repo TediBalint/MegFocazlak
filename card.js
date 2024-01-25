@@ -50,6 +50,12 @@ class Card{
         cardText.innerText = data[2];
         this.card.appendChild(cardText);
 
+        this.minStats = {
+            att: parseInt(data[3]),
+            mid: parseInt(data[4]),
+            def: parseInt(data[6])
+        };
+
         document.querySelector('.tableContainer').appendChild(this.card);
     }
     createEvolutionCard(data){
@@ -126,19 +132,22 @@ class Card{
         }
         
     }
+    isOver(currentCard){
+        return !(Object.keys(currentCard.stats).reduce((accumulator, key) => accumulator && this.minStats[key] <= currentCard.stats[key] , true));
+    }
     isAligable(card){
-        return (Object.keys(this.statsPlus).reduce((accumulator, key) => accumulator && this.maxStats[key] <= this.card.stats[key] , true) && (card.pos == this.pos || this.pos.toUpperCase() == 'ANY'));
+        return (Object.keys(this.statsPlus).reduce((accumulator, key) => accumulator && this.maxStats[key] >= card.stats[key] , true) && (card.pos == this.pos || this.pos.toUpperCase() == 'ANY'));
     }
     getOverall(){
         return Math.max(...Object.values(this.stats));
     }
     setNextPos(){
         if(this.y % 2 == 0){
-            if(this.x < 10) this.x++;
+            if(this.x < 9) this.x++;
             else this.y++;
         }
         else{
-            if(this.x > 1) this.x--;
+            if(this.x > 0) this.x--;
             else this.y++;
         }
     }
