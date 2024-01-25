@@ -9,7 +9,7 @@ class MovementHandler{
     }
     transitionEnd(){
         this.currentCard.card.removeEventListener('transitionend', this.transitionEnd);
-        if(this.steps > 0){
+        if(Math.abs(this.steps) > 0){
             this.transitionStart();
         }
         else{
