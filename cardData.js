@@ -34,14 +34,28 @@ let cardData = [
    '9;2;gold;ukrajna;chelsea;Mudryk;lw;76;43;37;1;0',   
 
    '9;3;gold-rare;argentina;miami;Messi;rw;88;90;18;1;0',
-   '8;3;Lépj előre 5-öt;0;65;0;5;0',
+   '8;3;Lépj előre 5-öt;99;99;99;5;0',
    '7;3;Ha az attackingod kevesebb, mint 85 lépj vissza 8-at;85;0;0;-8;0',
    '6;3;evo1;90;90;75;2;1;7;any;0;1;Evolution',
-   '5;3;Ha a defendinged kevesebb, mint 80 vesztettél ;0;0;80;0;1',
+   '5;3;Ha a defendinged kevesebb, mint 80 vesztettél;0;0;80;0;1',
    '4;3;gold-rare;franciaorszag;psg;Mbappe;lw;95;80;65;1;0',
    '3;3;bronze;kamerun;bengaluru_bananacsapata;Banana;cb;19;33;60;1;0',
    '2;3;Ha kevesebb mint 82 midfielded van lépj vissza 11-et;0;83;0;11;0',
    '1;3;evo1;75;75;80;35;35;5;gk;0;1;Evolution',
+   '0;3;gold;anglia;manutd;Maguire;cb;21;53;79;1;0',
+
+   '0;4;Ha az attackingod kevesebb, mint 90 vesztettél;90;0;0;0;1',
+   '1;4;Ha a midfielded kevesebb, mint 85 lépj vissza 2-őt;0;85;0;-2;0',
+   '2;4;evo1;85;85;85;13;13;14;any;0;1;Evolution',
+   '3;4;gold-rare;franciaorszag;psg;Kolo Muani;st;84;60;36;1;0',
+   '4;4;Ha valamelyik statod kevesebb, mint 80 lépj vissza 8-at;80;80;80;-8;0',
+   '5;4;gold-rare;argentina;miami;Messi;rw;88;90;18;1;0',
+   '6;4;Lépj vissza az első mezőre;99;99;99;-8;0',
+   '7;4;Ha a defendinged kevesebb, mint 90 lépj vissza 4-et;0;0;90;-4;0',
+   '8;4;gold-rare;argentina;astonvilla;Martinez;gk;23;38;85;1;0',
+   '9;4;gold-rare;franciaorszag;psg;Mbappe;lw;95;80;65;1;0',
+
+
 
 ]
 
