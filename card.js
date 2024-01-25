@@ -53,8 +53,11 @@ class Card{
         this.minStats = {
             att: parseInt(data[3]),
             mid: parseInt(data[4]),
-            def: parseInt(data[6])
+            def: parseInt(data[5])
         };
+
+        this.effectMove = parseInt(data[6]);
+        this.isDeadEffect = Boolean(parseInt(data[7]));
 
         document.querySelector('.tableContainer').appendChild(this.card);
     }
@@ -71,16 +74,8 @@ class Card{
         textDiv.classList.add('evoCardText');
         textDiv.innerText = data[12];
 
-       
-
         let statContainer = document.createElement('div');
         statContainer.classList.add('evoStatContainer')
-
-        // let nameDiv = document.createElement('div');
-        // nameDiv.classList.add('evoName');
-        // nameDiv.innerText = 'Requirements max:';
-
-        // statContainer.appendChild(nameDiv);
 
         let statDiv = document.createElement('div');
         statDiv.classList.add('statDiv');
@@ -123,7 +118,7 @@ class Card{
         document.querySelector('.tableContainer').appendChild(this.card);
     }
     plusStats(card){
-        if(this.isAligable(card)){
+        if(this.isEvoAligable(card)){
             for (const stat of Object.keys(card.stats)) {
                 console.log(stat);
                 card.stat[stat] += this.statsPlus[stat];
@@ -132,10 +127,10 @@ class Card{
         }
         
     }
-    isOver(currentCard){
+    isEffect(currentCard){
         return !(Object.keys(currentCard.stats).reduce((accumulator, key) => accumulator && this.minStats[key] <= currentCard.stats[key] , true));
     }
-    isAligable(card){
+    isEvoAligable(card){
         return (Object.keys(this.statsPlus).reduce((accumulator, key) => accumulator && this.maxStats[key] >= card.stats[key] , true) && (card.pos == this.pos || this.pos.toUpperCase() == 'ANY'));
     }
     getOverall(){
@@ -151,6 +146,16 @@ class Card{
             else this.y++;
         }
     }
+    setLastPos(){
+        if(this.y % 2 == 0){
+            if(this.x > 0) this.x--;
+            else this.y++;
+        }
+        else{
+            if(this.x < 9) this.x++;
+            else this.y++;
+        }
+    }
     updatePos(){
         if(this.x < 0) this.card.style.left = ((this.x)*140-10) + "px";
         else this.card.style.left = ((this.x)*140 + 10) + "px";
@@ -158,6 +163,9 @@ class Card{
     }
     Move(){
         this.updatePos(this.setNextPos());
+    }
+    MoveBack(){
+        this.updatePos(this.setLastPos());
     }
     makeCurrent(){
         this.isCurrent = true;

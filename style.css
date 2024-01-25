@@ -178,14 +178,13 @@ body{
 }
 .evo2{
     background: linear-gradient(to bottom, rgb(3,45,35), rgb(13,106,84), rgb(7,66,51));
+    color: #BBB;
 }
 .evo3{
     box-sizing: border-box;
     background: linear-gradient(to bottom, rgb(2,35,28), rgb(7,91,74), rgb(2,42,33));
     border: 3px solid rgb(89,76,58);
-}
-.evoCard{
-    
+    color: #BBB;
 }
 .evoCardText{
     text-align: center;

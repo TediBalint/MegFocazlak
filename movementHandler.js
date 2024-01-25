@@ -20,7 +20,7 @@ class MovementHandler{
                 this.currentCard.makeCurrent();
             }
             else if(this.getNextCard().isEvo){
-                if(this.getNextCard().isAligable(this.currentCard)){
+                if(this.getNextCard().isEvoAligable(this.currentCard)){
                     for (const stat of Object.keys(this.getNextCard().statsPlus)) {
                         this.currentCard.stats[stat] += this.getNextCard().statsPlus[stat];
                     }
@@ -31,11 +31,12 @@ class MovementHandler{
                 else console.log("Cant evo");
             }
             else{
-                if(this.getNextCard().isOver(this.currentCard)){
-                    console.log("game over");
+                if(this.getNextCard().isEffect(this.currentCard)){
+                    if(this.getNextCard().isDeadEffect) console.log("Game Over");
+                    else this.currentCard.Move()
                 }
                 else{
-                    console.log("not over");
+                    console.log("no effect");
                 }
             }
             
@@ -53,9 +54,17 @@ class MovementHandler{
         return nextCard;
     }
     transitionStart(){
-        this.currentCard.Move();
-        this.steps--;
-        this.currentCard.card.addEventListener('transitionend', this.transitionEnd);
+        if(this.steps >= 0){
+            this.currentCard.Move();
+            this.steps--;
+            this.currentCard.card.addEventListener('transitionend', this.transitionEnd);
+        }
+        else{
+            this.currentCard.MoveBack();
+            this.steps++;
+            this.currentCard.card.addEventListener('transitionend', this.transitionEnd);
+        }
+        
     }
     move(num){
         this.steps = num;
