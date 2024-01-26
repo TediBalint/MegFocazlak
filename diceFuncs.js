@@ -9,12 +9,12 @@ function DiceThrow() {
       dice.src = `imgs/dice/3.png`;
   
       throwContainer.appendChild(dice);
-      let rolls = Math.floor(Math.random() * 6) + 1;  
+      let rolls = Math.floor(Math.random() * 9) + 6;  
       setTimeout(() => {
         rollDice(rolls, dice).then(result => {
           resolve(result);
         });
-      }, 1000);
+      }, 1500);
     });
   }
   
@@ -32,7 +32,7 @@ function rollDice(rolls, dice) {
         rollDice(--rolls, dice).then(result => {
         resolve(result);
         });
-    }, 500);
+    }, 150);
     } else {
     resolve(dice.dataset.num);
     }
