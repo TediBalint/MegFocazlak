@@ -1,5 +1,5 @@
 let cardData = [
-
+   
    '0;0;bronze;kamerun;bengaluru_bananacsapata;Banana;cb;19;33;60;1;0',
    '1;0;bronze;nemetorszag;Kaiserslautern_dickcsapata;Dik;rb;39;48;53;1;0',
    '2;0;evo1;65;40;60;10;10;10;any;0;1;Evolution',
@@ -54,9 +54,5 @@ let cardData = [
    '7;4;Ha a defendinged kevesebb, mint 90 lépj vissza 4-et;0;0;90;-4;0',
    '8;4;gold-rare;argentina;astonvilla;Martinez;gk;23;38;85;1;0',
    '9;4;gold-rare;franciaorszag;psg;Mbappe;lw;95;80;65;1;0',
-
-
-
 ]
-
 export default cardData;

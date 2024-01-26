@@ -149,7 +149,7 @@ class Card{
     setLastPos(){
         if(this.y % 2 == 0){
             if(this.x > 0) this.x--;
-            else this.y++;
+            else this.y--;
         }
         else{
             if(this.x < 9) this.x++;

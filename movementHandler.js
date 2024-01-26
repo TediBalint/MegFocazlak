@@ -33,7 +33,7 @@ class MovementHandler{
             else{
                 if(this.getNextCard().isEffect(this.currentCard)){
                     if(this.getNextCard().isDeadEffect) console.log("Game Over");
-                    else this.currentCard.Move()
+                    else this.move(parseInt(this.getNextCard().effectMove))
                 }
                 else{
                     console.log("no effect");
