@@ -71,6 +71,23 @@ class MovementHandler{
         winnerText2.className = 'winnerTextSmall';
         body.appendChild(winnerText2);
     }
+    gameLoss(){
+        const body = document.querySelector('body');
+        body.innerHTML = '';
+        body.className = 'lossBody'
+
+        const loserText = document.createElement('div');
+        loserText.innerText = 'Meg lettél focázva';
+        loserText.className = 'lossText1';
+
+        const loserText2 = document.createElement('div');
+        loserText2.innerText = 'Sok sikert a következő próbálkozáshoz';
+        loserText2.className = 'lossText2';
+
+        body.appendChild(loserText);
+        body.appendChild(loserText2);
+        
+    }
     transitionStart(){
         if(this.steps >= 0){
             this.currentCard.Move();
