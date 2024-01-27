@@ -243,3 +243,22 @@ body{
 .lossText2{
     margin-top: 30px;
 }
+.lossRestartButton, .winRestartButton{
+    width: 150px;
+    height: 55px;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #DDD;
+    border: #888 solid 3px;
+    border-radius: 5px;
+    color: #333;
+}
+.restartButton:hover, .winRestartButton:hover{
+    background-color: #333;
+    color: #DDD;
+}
+.winRestartButton{
+    margin-top: 550px;
+}
