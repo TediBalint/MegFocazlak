@@ -50,8 +50,26 @@ class MovementHandler{
             }
         });
         if(nextCard == undefined) console.log("Game Over you won");
-        //win
         return nextCard;
+    }
+    gameWin(){
+        const WinnerCard = document.querySelector('.currentCard')
+        const body = document.querySelector('body')
+        body.innerHTML = '';
+        body.className = 'winBody'
+        
+        WinnerCard.classList.add('endCard');
+        body.appendChild(WinnerCard)
+
+        const winnerText = document.createElement('div');
+        winnerText.innerText = 'MEGFOCÁZTÁL';
+        winnerText.className = 'winnerTextBig';
+        body.appendChild(winnerText);
+
+        const winnerText2 = document.createElement('div');
+        winnerText2.innerText = 'Itt a győztes lapod';
+        winnerText2.className = 'winnerTextSmall';
+        body.appendChild(winnerText2);
     }
     transitionStart(){
         if(this.steps >= 0){

@@ -195,3 +195,32 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
+.endCard{
+    position: fixed;
+    left: 60%!important;
+    top: 50%!important;
+    transform: translate(-50%, -50%);
+    transition: none!important;
+}
+.winnerTextBig{
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100pt;
+    letter-spacing: 25px;
+    font-weight: bold;
+    color: #4D4;
+}
+.winnerTextSmall{
+    position: fixed;
+    top: 50%;
+    left: 34%;
+    transform: translate(-50%, -50%);
+    font-size: 60pt;
+    color: #3F3
+}
+.winBody{
+    background-image: url(imgs/img/BG.jpeg);
+    background-size: cover;
+}

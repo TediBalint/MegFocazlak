@@ -14,5 +14,6 @@ dobasBtn.addEventListener('click', () => {DiceThrow().then(result =>{
         document.body.removeChild(document.querySelector('.throwContainer'))
         movementHandler.move(result);
     }, 1500);
-    
 })})
+
+movementHandler.gameWin();
