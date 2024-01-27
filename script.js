@@ -15,5 +15,3 @@ dobasBtn.addEventListener('click', () => {DiceThrow().then(result =>{
         movementHandler.move(result);
     }, 1500);
 })})
-
-movementHandler.gameWin();

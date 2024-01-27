@@ -32,7 +32,7 @@ class MovementHandler{
             }
             else{
                 if(this.getNextCard().isEffect(this.currentCard)){
-                    if(this.getNextCard().isDeadEffect) console.log("Game Over");
+                    if(this.getNextCard().isDeadEffect) this.gameLoss();
                     else this.move(parseInt(this.getNextCard().effectMove))
                 }
                 else{
@@ -49,7 +49,7 @@ class MovementHandler{
                 nextCard = elem;
             }
         });
-        if(nextCard == undefined) console.log("Game Over you won");
+        if(nextCard == undefined) this.gameWin();
         return nextCard;
     }
     gameWin(){
@@ -73,7 +73,7 @@ class MovementHandler{
 
         const restartButton = document.createElement('button');
         restartButton.className = 'winRestartButton';
-        restartButton.innerText = 'Újra próbálkozás'
+        restartButton.innerText = 'Gyere visszavágó'
         restartButton.addEventListener('click', (e) =>{location.reload()}) 
         body.appendChild(restartButton)
     }
