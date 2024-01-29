@@ -67,13 +67,13 @@ class MovementHandler{
         body.appendChild(winnerText);
 
         const winnerText2 = document.createElement('div');
-        winnerText2.innerText = 'Itt a győztes lapod';
+        winnerText2.innerText = 'Itt a győztes lapod!';
         winnerText2.className = 'winnerTextSmall';
         body.appendChild(winnerText2);
 
         const restartButton = document.createElement('button');
         restartButton.className = 'winRestartButton';
-        restartButton.innerText = 'Gyere visszavágó'
+        restartButton.innerText = 'Gyere visszavágó!'
         restartButton.addEventListener('click', (e) =>{location.reload()}) 
         body.appendChild(restartButton)
     }
@@ -83,18 +83,18 @@ class MovementHandler{
         body.className = 'lossBody'
 
         const loserText = document.createElement('div');
-        loserText.innerText = 'Meg lettél focázva';
+        loserText.innerText = 'Meg lettél focázva!';
         loserText.className = 'lossText1';
         body.appendChild(loserText);
 
         const loserText2 = document.createElement('div');
-        loserText2.innerText = 'Sok sikert a következő próbálkozáshoz';
+        loserText2.innerText = 'Sok sikert a következő próbálkozáshoz!';
         loserText2.className = 'lossText2';
         body.appendChild(loserText2);
 
         const restartButton = document.createElement('button');
         restartButton.className = 'lossRestartButton';
-        restartButton.innerText = 'Újra próbálkozás'
+        restartButton.innerText = 'Újrapróbálkozás'
         restartButton.addEventListener('click', (e) =>{location.reload()}) 
         body.appendChild(restartButton)
         

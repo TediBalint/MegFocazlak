@@ -1,6 +1,7 @@
 body{
     margin: 0;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: beige
 }
 .clear{
     clear: both;
@@ -147,11 +148,20 @@ body{
 #dobasBtn{
     width: 120px;
     height: 60px;
-    border-radius: 7%;
+    border-radius: 5%;
     border: #333 solid 3px;
     position: absolute;
-    top: 20%;
-    left: 5%;
+    top: 25%;
+    left: 7%;
+    font-size: large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: beige;
+    font-weight: bold;
+}
+
+#dobasBtn:hover{
+    background-color: #333;
+    color: #DDD;
 }
 
 .gameCard{
@@ -183,7 +193,7 @@ body{
 .evo3{
     box-sizing: border-box;
     background: linear-gradient(to bottom, rgb(2,35,28), rgb(7,91,74), rgb(2,42,33));
-    border: 3px solid rgb(89,76,58);
+    border: 3px solid #000;
     color: #BBB;
 }
 .evoCardText{
@@ -194,6 +204,7 @@ body{
     font-weight: bold;
     margin-left: auto;
     margin-right: auto;
+    top: 10%;
 }
 .endCard{
     position: fixed;
@@ -232,10 +243,15 @@ body{
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
     color: #D71616;
-    font-size: 60pt;
+    font-size: 30pt;
+    bottom: 50%;
     width: 1000px;
     text-align: center;
+    font-weight: bold;
+    
 }
 .lossText1{
     margin-top: 280px;
@@ -244,7 +260,7 @@ body{
     margin-top: 30px;
 }
 .lossRestartButton, .winRestartButton{
-    width: 150px;
+    width: 200px;
     height: 55px;
     display: block;
     margin-top: 20px;
@@ -252,10 +268,14 @@ body{
     margin-right: auto;
     background-color: #DDD;
     border: #888 solid 3px;
-    border-radius: 5px;
+    border-radius: 5%;
     color: #333;
+    font-size: larger;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: beige;
+    font-weight: bold;
 }
-.restartButton:hover, .winRestartButton:hover{
+.lossRestartButton:hover, .winRestartButton:hover{
     background-color: #333;
     color: #DDD;
 }

@@ -11,8 +11,8 @@ body{
     margin-bottom: 80px;
     margin-left: auto;
     margin-right: auto;
-    background-color: gray;
-    border-radius: 15px;
+    background-color: rgb(136, 132, 132);
+    border-radius: 20px;
     padding-top: 140px;
     opacity: 40%;
     position: relative;
@@ -27,7 +27,7 @@ body{
     height: 200px;
     text-align: center;
     background-image: url("imgs/img/4e1bf8d7ee63f79ab73e1a05d1c6a8bf.jpg");
-    border-radius: 2%;
+    border-radius: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -57,7 +57,7 @@ body{
   border: none;
   outline: none;
   color: rgb(255, 255, 255);
-  background: #111;
+  background: #000;
   cursor: pointer;
   position: relative;
   z-index: 0;
@@ -113,10 +113,13 @@ body{
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #222;
+  background: #000;
   left: 0;
   top: 0;
   border-radius: 10px;
 }
 
-h1{}
+h1{
+  color: #ffffff;
+  letter-spacing: 3px;
+}
